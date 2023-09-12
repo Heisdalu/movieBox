@@ -4,6 +4,8 @@ import Svg from "./Svg";
 import DefaultImage from "../Default/DefaultImage";
 
 const Card: FC = () => {
+  
+
   return (
     <article
       className="border-1 border-black max-w-[250px]"
@@ -29,7 +31,9 @@ const Card: FC = () => {
         >
           2018
         </span>
-        <h1 className="text-18 font-bold text-spb">Stranger Things</h1>
+        <h1 className="text-18 font-bold text-spb" data-testid="movie-title">
+          Stranger Things
+        </h1>
         <div className="flex items-center">
           <DefaultImage src="/imdb.jpg" height={35} width={35} />
           <div className="text-12 text-spb ml-[10px]">86.0/100</div>

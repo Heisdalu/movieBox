@@ -3,6 +3,7 @@ import DefaultImage from "@/components/Default/DefaultImage";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import MovieList from "@/components/MovieList/MovieList";
 import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -15,40 +16,7 @@ export default function Home() {
     <div className={dmSans.className}>
       <header className="bg-hero-image bg-no-repeat bg-cover bg-center h-[600px]  md:py-[1rem]">
         <Wrapper>
-          <nav className="relative space-y-1 border-[2px] border-red-700 md:grid md:[grid-template-columns:1fr_1fr_1fr] md:items-center md:space-y-[0]">
-            <div className="flex items-center border-1 md:justify-self-start">
-              <DefaultImage
-                src="/tvIcon.jpg"
-                className="bg-transparent rounded-[50%]"
-                height={50}
-                width={50}
-              />
-              <h1
-                aria-label="app title"
-                className="font-bold text-white ml-[1rem]"
-              >
-                MovieBox
-              </h1>
-              <div className=" bg-rose rounded-50 p-0.5 ml-auto md:hidden">
-                <DefaultImage src="/burger.svg" height={24} width={24} />
-              </div>
-            </div>
-            <div className="px-0.5 rounded-6 border-[2px] border-[#D1D5DB] flex max-w-[525px] w-100 ">
-              <input
-                type="search"
-                placeholder="What do you want to watch?"
-                className="relative placeholder:text-1 placeholder:text-white font-[400] text-1  w-100 text-white p-0.5 py-1 md:py-0.5 appearance-none bg-transparent outline-none gee"
-              />
-              <DefaultImage src="/search.svg" height={24} width={24} />
-            </div>
-            <div className="hidden md:flex md:items-center md:justify-self-end space-x-1  ">
-              <span className="text-white">Sign In</span>
-              <div className=" bg-rose rounded-50 p-0.5">
-                <DefaultImage src="/burger.svg" height={24} width={24} />
-              </div>
-            </div>
-          </nav>
-
+          <Header />
           <div className="space-y-1 max-w-[404px] w-100 border-1 border-red-500 mt-[4rem] md:mt-[7rem] ">
             <h1 className="text-[3rem] font-bold text-white">
               John wick 3: Parabellum
