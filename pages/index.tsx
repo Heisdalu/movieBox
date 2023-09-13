@@ -68,11 +68,11 @@ export default function Home({ data }: any) {
     <div className={dmSans.className}>
       <header
         ref={headerRef}
-        className="relative z-[5] overlay bg-[#00000053] bg-no-repeat bg-cover bg-center h-[600px]  md:py-[1rem]"
+        className="relative z-[5] overlay bg-[#00000053] bg-no-repeat bg-cover bg-center md:h-[600px]  md:py-[1rem]"
       >
         <Wrapper>
           <Header />
-          <div className="flex flex-col items-start space-y-1 max-w-[500px] w-100 mt-[4rem] md:mt-[7rem] ">
+          <div className="mb-2 flex flex-col items-start space-y-1 max-w-[500px] w-100 mt-[4rem] md:mt-[7rem] ">
             <h1 className="text-[3rem] font-bold text-white">
               {firstMovie.title}
             </h1>

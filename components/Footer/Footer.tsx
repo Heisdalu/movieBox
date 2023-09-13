@@ -21,7 +21,7 @@ const Footer = () => {
       </div>
 
       <div className="text-18 text-gray font-bold text-center">
-        © 2021 MovieBox by Adriana Eka Prayudha{" "}
+        © {new Date().getFullYear()} MovieBox by Divine Obi{" "}
       </div>
     </div>
   );

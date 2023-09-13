@@ -35,7 +35,6 @@ const MovieDetailPage = () => {
         setError(false);
       } catch (e: any) {
         setError(true);
-        console.log(e);
       } finally {
         setLoading(false);
       }
@@ -44,7 +43,20 @@ const MovieDetailPage = () => {
     getMovieInformation();
   }, [query]);
 
-  console.log(detail, error, loading);
+  if (error)
+    return (
+      <div className="mt-2 h-[500px] grid place-items-center">
+        <div className="flex flex-col ">
+          <h1 className="mb-1.5 text-18 font-bold">Something went wrong...</h1>
+          <Link
+            href="/"
+            className="text-center text-white font-bold bg-rose px-2 py-0.5 rounded-6"
+          >
+            Go back
+          </Link>
+        </div>
+      </div>
+    );
 
   return (
     <div className="lg:flex lg:space-x-[3rem]">
@@ -60,10 +72,14 @@ const MovieDetailPage = () => {
         </Link>
 
         {/* {<DetailLoading />} */}
-        <div className="container space-y-1">
-          <MovieMainDetail image={detail} />
-          <MovieHeaderDetail data={detail} />
-        </div>
+        {!loading && !error ? (
+          <div className="container space-y-1">
+            <MovieMainDetail image={detail} />
+            <MovieHeaderDetail data={detail} />
+          </div>
+        ) : (
+          <DetailLoading />
+        )}
       </div>
     </div>
   );

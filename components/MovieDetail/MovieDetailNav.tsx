@@ -1,13 +1,16 @@
 import React, { FC } from "react";
 import DefaultImage from "../Default/DefaultImage";
 import Logo from "../Header/Logo";
+import Link from "next/link";
 
 const MovieDetailNav: FC = () => {
   return (
     <div className="border-[#0000004d] custom hidden lg:block w-[250px] border-1 md:pt-[3rem] h-[780px]">
-      <div className="flex space-x-1 items-center mx-1">
-        <Logo color={false} />
-      </div>
+      <Link href="/">
+        <div className="flex space-x-1 items-center mx-1">
+          <Logo color={false} />
+        </div>
+      </Link>
 
       <div className="lg:flex flex-col mt-[3rem] space-y-1 mb-[2rem]">
         <button className="py-1 flex justify-center items-center">
