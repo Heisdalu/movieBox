@@ -4,6 +4,8 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import MovieList from "@/components/MovieList/MovieList";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+import axios from "axios";
+import React, { useRef, useEffect } from "react";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -11,19 +13,71 @@ const dmSans = DM_Sans({
   adjustFontFallback: false,
 });
 
-export default function Home() {
+const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: process.env.NEXT_TDMB,
+  },
+};
+
+export const getStaticProps = async () => {
+  try {
+    const topRatedMovies = await axios(
+      "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1",
+      options
+    );
+
+    return {
+      props: {
+        data: topRatedMovies.data.results.slice(0, 20),
+      },
+    };
+  } catch (e) {
+    return {
+      props: {
+        data: {
+          error: "Something went wrong",
+        },
+      },
+    };
+  }
+};
+
+export default function Home({ data }: any) {
+  const headerRef = useRef<HTMLDivElement | null>(null);
+
+  if (data.error) {
+    return <div className="h-[500px]">{data.error}</div>;
+  }
+
+  const firstMovie = data[1];
+
+  useEffect(() => {
+    const bgImage = `url(https://image.tmdb.org/t/p/w500${firstMovie.backdrop_path})`;
+
+    if (headerRef.current) {
+      headerRef.current.style.backgroundImage = bgImage;
+    }
+  }, []);
+
   return (
     <div className={dmSans.className}>
-      <header className="bg-hero-image bg-no-repeat bg-cover bg-center h-[600px]  md:py-[1rem]">
+      <header
+        ref={headerRef}
+        className="relative z-[5] overlay bg-[#00000053] bg-no-repeat bg-cover bg-center h-[600px]  md:py-[1rem]"
+      >
         <Wrapper>
           <Header />
-          <div className="space-y-1 max-w-[404px] w-100 border-1 border-red-500 mt-[4rem] md:mt-[7rem] ">
+          <div className="space-y-1 max-w-[404px] w-100 mt-[4rem] md:mt-[7rem] ">
             <h1 className="text-[3rem] font-bold text-white">
-              John wick 3: Parabellum
+              {firstMovie.name}
             </h1>
             <div className="flex items-center">
               <DefaultImage src="/imdb.jpg" height={35} width={35} />
-              <div className="text-12 text-white ml-[10px]">86.0/100</div>
+              <div className="text-12 text-white ml-[10px]">
+                {firstMovie.vote_average}/10
+              </div>
 
               <div className="space-x-[10px] flex ml-2 items-center">
                 <DefaultImage
@@ -33,14 +87,12 @@ export default function Home() {
                   className="rounded-50"
                 />
                 <span aria-label="rating" className="text-white text-12">
-                  97%
+                  {firstMovie.vote_average * 10}%
                 </span>
               </div>
             </div>
             <p className="text-14 text-white leading-[1.125rem] font-[500]">
-              John Wick is on the run after killing a member of the
-              international assassins guild, and with a $14 million price tag on
-              his head, he is the target of hit men and women everywhere.
+              {firstMovie.overview}
             </p>
 
             <button className="space-x-[10px] flex items-center uppercase bg-rose text-white rounded-6 px-1.5 py-1">
@@ -62,7 +114,7 @@ export default function Home() {
             </button>
           </div>
 
-          <MovieList />
+          <MovieList moveList={data.slice(1)} />
           <Footer />
         </Wrapper>
       </section>

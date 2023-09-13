@@ -24,7 +24,7 @@ const MovieDetailPage = () => {
       console.log(result.data);
     };
 
-    lol();
+    // lol();
   }, []);
 
   return (

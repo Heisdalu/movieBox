@@ -22,8 +22,8 @@ const Search: FC = () => {
       </div>
       <Wrapper>
         <div className="mt-2">
-          {/* <LoadingList /> */}
-          <MovieList />
+          <LoadingList />
+          {/* <MovieList /> */}
         </div>
         <Footer />
       </Wrapper>
