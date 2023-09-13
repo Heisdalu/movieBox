@@ -13,19 +13,21 @@ import Link from "next/link";
 // }
 
 const Card: FC<CardProps> = ({
-  first_air_date,
-  name,
+  release_date,
+  title,
   poster_path,
   vote_average,
   id,
 }) => {
+  //   console.log(id, name);
+
   return (
     <article
-      className="border-1 border-black max-w-[250px]"
+      className="max-w-[250px]"
       data-testid="movie-card"
     >
       <Link href={`/${id}`}>
-        <div className="relative border-1 border-red-600 flex">
+        <div className="relative flex">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             height={370}
@@ -43,10 +45,10 @@ const Card: FC<CardProps> = ({
             aria-label="release date"
             data-testid="movie-release-date"
           >
-            {first_air_date}
+            {release_date}
           </span>
           <h1 className="text-18 font-bold text-spb" data-testid="movie-title">
-            {name}
+            {title}
           </h1>
           <div className="flex items-center">
             <DefaultImage src="/imdb.jpg" height={35} width={35} />

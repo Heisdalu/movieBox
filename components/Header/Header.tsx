@@ -1,10 +1,11 @@
 import DefaultImage from "../Default/DefaultImage";
 import Search from "./Search";
+import Link from "next/link";
 
 const Header = () => {
   return (
-    <nav className="relative space-y-1 border-[2px] border-red-700 md:grid md:[grid-template-columns:1fr_1fr_1fr] md:items-center md:space-y-[0]">
-      <div className="flex items-center border-1 md:justify-self-start">
+    <nav className="relative space-y-1 md:grid md:[grid-template-columns:1fr_1fr_1fr] md:items-center md:space-y-[0]">
+      <Link href="/" className="flex items-center md:justify-self-start">
         <DefaultImage
           src="/tv.png"
           className="bg-transparent"
@@ -17,7 +18,7 @@ const Header = () => {
         <div className=" bg-rose rounded-50 p-0.5 ml-auto md:hidden">
           <DefaultImage src="/burger.svg" height={24} width={24} />
         </div>
-      </div>
+      </Link>
       <Search />
       <div className="hidden md:flex md:items-center md:justify-self-end space-x-1  ">
         <span className="text-white">Sign In</span>

@@ -1,16 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import Image from "next/image";
 import DefaultImage from "../Default/DefaultImage";
 
-const MovieMainDetail: FC = () => {
+interface Props {
+  image: any;
+}
+
+const MovieMainDetail: FC<Props> = ({ image }: any) => {
+  
   return (
     <>
       <div className="h-[300px] max-w-[700px] lg:max-w-[1000px] rounded-[20px] relative md:h-[500px] lg:h-[400px]  overflow-hidden">
-        <div className=" w-100 h-100">
+        <div className=" w-100 h-100 overlay">
           <Image
-            src={
-              "https://image.tmdb.org/t/p/w500/rt7cpEr1uP6RTZykBFhBTcRaKvG.jpg"
-            }
+            src={`https://image.tmdb.org/t/p/w500${image.poster_path}`}
             height={0}
             priority={true}
             width={0}

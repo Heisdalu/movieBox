@@ -23,9 +23,9 @@ const MovieDetailNav: FC = () => {
           <span className="ml-[7px]"> TV Series</span>
         </button>
         <button className="py-1 flex justify-center items-center">
-          <DefaultImage src="/logout.png" height={30} width={30} />
-          Upcoming
-          <span className="ml-[5px]"> Movies</span>
+          <DefaultImage src="/Calendar.png" height={30} width={30} />
+
+          <span className="ml-[5px]"> Upcoming</span>
         </button>
       </div>
 

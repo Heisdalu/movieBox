@@ -6,6 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import axios from "axios";
 import React, { useRef, useEffect } from "react";
+import Link from "next/link";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ const options = {
 export const getStaticProps = async () => {
   try {
     const topRatedMovies = await axios(
-      "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1",
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
       options
     );
 
@@ -48,10 +49,12 @@ export default function Home({ data }: any) {
   const headerRef = useRef<HTMLDivElement | null>(null);
 
   if (data.error) {
-    return <div className="h-[500px]">{data.error}</div>;
+    return (
+      <div className="h-[500px] grid place-items-center">{data.error}</div>
+    );
   }
 
-  const firstMovie = data[1];
+  const firstMovie = data[17];
 
   useEffect(() => {
     const bgImage = `url(https://image.tmdb.org/t/p/w500${firstMovie.backdrop_path})`;
@@ -69,9 +72,9 @@ export default function Home({ data }: any) {
       >
         <Wrapper>
           <Header />
-          <div className="space-y-1 max-w-[404px] w-100 mt-[4rem] md:mt-[7rem] ">
+          <div className="flex flex-col items-start space-y-1 max-w-[500px] w-100 mt-[4rem] md:mt-[7rem] ">
             <h1 className="text-[3rem] font-bold text-white">
-              {firstMovie.name}
+              {firstMovie.title}
             </h1>
             <div className="flex items-center">
               <DefaultImage src="/imdb.jpg" height={35} width={35} />
@@ -95,10 +98,13 @@ export default function Home({ data }: any) {
               {firstMovie.overview}
             </p>
 
-            <button className="space-x-[10px] flex items-center uppercase bg-rose text-white rounded-6 px-1.5 py-1">
+            <Link
+              href={`/${firstMovie.id}`}
+              className="space-x-[10px] flex items-center uppercase bg-rose text-white rounded-6 px-1.5 py-1"
+            >
               <DefaultImage src="/watch.svg" height={20} width={20} />
               <span className="text-14 font-[700]"> Watch trailer</span>
-            </button>
+            </Link>
           </div>
         </Wrapper>
       </header>
@@ -114,7 +120,7 @@ export default function Home({ data }: any) {
             </button>
           </div>
 
-          <MovieList moveList={data.slice(1)} />
+          <MovieList moveList={data.slice(0)} />
           <Footer />
         </Wrapper>
       </section>
