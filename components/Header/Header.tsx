@@ -2,13 +2,12 @@ import DefaultImage from "../Default/DefaultImage";
 import Search from "./Search";
 
 const Header = () => {
- 
   return (
     <nav className="relative space-y-1 border-[2px] border-red-700 md:grid md:[grid-template-columns:1fr_1fr_1fr] md:items-center md:space-y-[0]">
       <div className="flex items-center border-1 md:justify-self-start">
         <DefaultImage
-          src="/tvIcon.jpg"
-          className="bg-transparent rounded-[50%]"
+          src="/tv.png"
+          className="bg-transparent"
           height={50}
           width={50}
         />

@@ -13,13 +13,13 @@ const Card: FC = () => {
     >
       <div className="relative border-1 border-red-600 flex">
         <Image
-          src="/mainPic.png"
+          src="https://image.tmdb.org/t/p/w500/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg"
           height={370}
           width={250}
           alt=""
           data-testid="movie-poster"
         />
-        <span className="bg-[#f3f4f680] [backdrop-filter:blur(1px)] p-0.5 rounded-50 absolute top-[1rem] right-[1rem]">
+        <span className="bg-[#ffffff88] [backdrop-filter:blur(2px)] p-0.5 rounded-50 absolute top-[1rem] right-[1rem]">
           <Svg />
         </span>
       </div>

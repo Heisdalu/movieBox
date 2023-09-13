@@ -9,3 +9,15 @@ input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
 
+.colr{
+  color:#be123c1a;
+  color: #be123cb3;
+  color: #be123c33;
+
+}
+
+.custom {
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+;
+}
