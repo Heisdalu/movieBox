@@ -7,6 +7,7 @@ import Header from "@/components/Header/Header";
 import axios from "axios";
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import { options } from "@/constant/option";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -14,13 +15,6 @@ const dmSans = DM_Sans({
   adjustFontFallback: false,
 });
 
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization: process.env.NEXT_TDMB,
-  },
-};
 
 export const getStaticProps = async () => {
   try {

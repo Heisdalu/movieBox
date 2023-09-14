@@ -8,6 +8,7 @@ import Link from "next/link";
 import DetailLoading from "@/components/Loading/DetailLoading";
 import MovieHeaderDetail from "@/components/MovieDetail/MovieHeaderDetail";
 import { useRouter } from "next/router";
+import ErrorPage from "@/components/ErrorPage/ErrorPage";
 
 const MovieDetailPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,20 +44,7 @@ const MovieDetailPage = () => {
     getMovieInformation();
   }, [query]);
 
-  if (error)
-    return (
-      <div className="mt-2 h-[500px] grid place-items-center">
-        <div className="flex flex-col ">
-          <h1 className="mb-1.5 text-18 font-bold">Something went wrong...</h1>
-          <Link
-            href="/"
-            className="text-center text-white font-bold bg-rose px-2 py-0.5 rounded-6"
-          >
-            Go back
-          </Link>
-        </div>
-      </div>
-    );
+  if (error) return <ErrorPage />;
 
   return (
     <div className="lg:flex lg:space-x-[3rem]">

@@ -19,13 +19,9 @@ const Card: FC<CardProps> = ({
   vote_average,
   id,
 }) => {
-  //   console.log(id, name);
 
   return (
-    <article
-      className="max-w-[250px]"
-      data-testid="movie-card"
-    >
+    <article className="max-w-[250px]" data-testid="movie-card">
       <Link href={`/${id}`}>
         <div className="relative flex">
           <Image
@@ -33,6 +29,7 @@ const Card: FC<CardProps> = ({
             height={370}
             width={250}
             alt=""
+            className="bg-slate-200"
             data-testid="movie-poster"
           />
           <span className="bg-[#ffffff88] [backdrop-filter:blur(2px)] p-0.5 rounded-50 absolute top-[1rem] right-[1rem]">
