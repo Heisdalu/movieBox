@@ -51,7 +51,7 @@ const Search: FC = () => {
         <div className="mt-2">
           {loading && <LoadingList />}
           {!loading && !error && data?.results?.length > 0 ? (
-            <MovieList moveList={data.results} />
+            <MovieList moveList={data.results.slice(0, 11)} />
           ) : (
             <div className="h-[300px] text-center text-18 font-bold">
               Oops...No results found

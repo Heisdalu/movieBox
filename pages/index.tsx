@@ -15,7 +15,6 @@ const dmSans = DM_Sans({
   adjustFontFallback: false,
 });
 
-
 export const getStaticProps = async () => {
   try {
     const topRatedMovies = await axios(
@@ -114,7 +113,7 @@ export default function Home({ data }: any) {
             </button>
           </div>
 
-          <MovieList moveList={data.slice(0)} />
+          <MovieList moveList={data.slice(0, 10)} />
           <Footer />
         </Wrapper>
       </section>

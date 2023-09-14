@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Genre from "./Genre";
 
-
 const MovieHeaderDetail = ({ data }: any) => {
   return (
     <div>
@@ -10,20 +9,31 @@ const MovieHeaderDetail = ({ data }: any) => {
         aria-label="movie detail"
         className="font-[500] mb-1 space-y-1 md:space-y-[0] md:flex md:space-x-1"
       >
-        <h1 className="break-all border-black text-1 md:text-[1.25rem]">
+        <h1
+          data-testid="movie-title"
+          className="break-all border-black text-1 md:text-[1.25rem]"
+        >
           {data.title}
         </h1>
-        <p aria-label="release date" className="text-1 md:text-[1.25rem]">
+        <p
+          data-testid="movie-release-date"
+          aria-label="release date"
+          className="text-1 md:text-[1.25rem]"
+        >
           {data.release_date}
         </p>
         <div className="flex items-center text-1 md:text-[1.25rem]">
-          <p aria-label="movie runtime">{data.runtime}</p>
+          <p data-testid="movie-runtime" aria-label="movie runtime">
+            {data.runtime}
+          </p>
           <span>mins</span>
         </div>
       </div>
       <div className="lg:flex space-y-1 lg:space-x-2 lg:space-y-[0]">
         <div className="space-y-1">
-          <p className="text-1 md:text-[1.25rem]">{data.overview}</p>
+          <p data-testid="movie-overview" className="text-1 md:text-[1.25rem]">
+            {data.overview}
+          </p>
 
           <div className="space-y-1 md:space-y-1.5">
             <div className="text-1 md:text-[20px]">
