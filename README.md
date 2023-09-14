@@ -1,6 +1,6 @@
 # MovieBox
 
-MovieBox helps in displaying top rated movies, searching movies and also getting the movie overview and details.
+MovieBox helps in displaying top rated movies of the week, searching movies and also getting the movie overview and details.
 
 ## Table of content
 
@@ -22,7 +22,7 @@ MovieBox helps in displaying top rated movies, searching movies and also getting
 - Typescript
 - Next.js
 - Tailwind.css
-- TMDB 
+- TMDB
 
 ## Installation
 

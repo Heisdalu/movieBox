@@ -34,6 +34,7 @@ export const getStaticProps = async () => {
           error: "Something went wrong",
         },
       },
+      revalidate: 604800, // 7 days call
     };
   }
 };
