@@ -11,7 +11,7 @@ const MovieMainDetail: FC<Props> = ({ image }: any) => {
   return (
     <>
       <div className="h-[300px] max-w-[700px] lg:max-w-[1000px] rounded-[20px] relative md:h-[500px] lg:h-[400px]  overflow-hidden">
-        <div className=" w-100 h-100 overlay">
+        <div className=" w-100 h-100 overlay rounded-[20px]">
           <Image
             src={`https://image.tmdb.org/t/p/w500${image.poster_path}`}
             height={0}
