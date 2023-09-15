@@ -19,10 +19,9 @@ const Card: FC<CardProps> = ({
   vote_average,
   id,
 }) => {
-
   return (
     <article className="max-w-[250px]" data-testid="movie-card">
-      <Link href={`/${id}`}>
+      <Link href={`/movies/${id}`}>
         <div className="relative flex">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}

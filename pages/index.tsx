@@ -93,7 +93,7 @@ export default function Home({ data }: any) {
             </p>
 
             <Link
-              href={`/${firstMovie.id}`}
+              href={`/movies/${firstMovie.id}`}
               className="space-x-[10px] flex items-center uppercase bg-rose text-white rounded-6 px-1.5 py-1"
             >
               <DefaultImage src="/watch.svg" height={20} width={20} />

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieDetailNav from "@/components/MovieDetail/MovieDetailNav";
-import Genre from "@/components/MovieDetail/Genre";
 import MovieMainDetail from "@/components/MovieDetail/MovieMainDetail";
 import Link from "next/link";
 import DetailLoading from "@/components/Loading/DetailLoading";
