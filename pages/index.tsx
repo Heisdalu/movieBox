@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 export const getStaticProps = async () => {
   try {
     const topRatedMovies = await axios(
-      "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
       options
     );
 
